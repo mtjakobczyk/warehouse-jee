@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.mtjakobczyk.pl/Schemas/FreightFrontend" 
+	xmlns:tns="http://www.mtjakobczyk.pl/Schemas/FreightFrontend" 
+	elementFormDefault="qualified" xmlns:Q1="http://www.tibco.com/schemas/HandlingSchema">
+	
+
+    <import schemaLocation="HandlingSchema.xsd" namespace="http://www.tibco.com/schemas/HandlingSchema"></import>
+    <element name="getShipment">
+    	<complexType>
+    		<sequence>
+    			<element name="searchedAWB" type="string"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+    
+    <element name="getShipmentResponse">
+    	<complexType>
+    		<sequence>
+    			<element name="searchedAWB" type="string"></element>
+    			<element ref="Q1:shipments"></element>
+    		</sequence>
+    	</complexType></element>
+
+    <element name="newShipment">
+    	<complexType>
+    		<sequence>
+    			<element ref="Q1:shipment"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="newShipmentResponse">
+    	<complexType>
+    		<sequence>
+    			<element ref="Q1:shipment"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="newShipmentFault">
+    	<complexType>
+    		<sequence>
+    			<element name="faultcode" type="string"></element>
+    			<element name="faultinfo" type="string"></element>
+    		</sequence>
+    	</complexType>    
+    </element>
+</schema>

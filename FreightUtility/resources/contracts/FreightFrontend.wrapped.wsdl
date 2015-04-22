@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions  
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	name="FreightFrontend" xmlns:cff="http://www.mtjakobczyk.pl/contracts/FreightFrontend/" xmlns:ss="http://www.mtjakobczyk.pl/Schemas/serviceHeader" targetNamespace="http://www.mtjakobczyk.pl/contracts/FreightFrontend/" 
+	xmlns:xsd1="http://www.mtjakobczyk.pl/Schemas/FreightFrontend">
+<!--   <wsdl:import location="../schemas/FreightFrontend.xsd" namespace="http://www.mtjakobczyk.pl/Schemas/FreightFrontend"/> -->
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import  namespace="http://www.mtjakobczyk.pl/Schemas/FreightFrontend" schemaLocation="../schemas/FreightFrontend.xsd" />
+    	<xsd:import  namespace="http://www.mtjakobczyk.pl/Schemas/serviceHeader" schemaLocation="../schemas/serviceHeader.xsd" />
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="getShipment">
+    <wsdl:part element="xsd1:getShipment" name="input"/>
+  </wsdl:message>
+  <wsdl:message name="getShipmentResponse">
+    <wsdl:part element="xsd1:getShipmentResponse" name="output"/>
+  </wsdl:message>
+  <wsdl:message name="newShipment">
+  	<wsdl:part name="input" element="xsd1:newShipment"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newShipmentResponse">
+  	<wsdl:part name="output" element="xsd1:newShipmentResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newShipmentFault">
+  	<wsdl:part name="fault" element="xsd1:newShipmentFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IFreight">
+    <wsdl:operation name="getShipment">
+      <wsdl:input message="cff:getShipment"/>
+      <wsdl:output message="cff:getShipmentResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="newShipment">
+    	<wsdl:input message="cff:newShipment"></wsdl:input>
+    	<wsdl:output message="cff:newShipmentResponse"></wsdl:output>
+        <wsdl:fault name="newShipmentFault" message="cff:newShipmentFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+
+    <wsdl:binding name="FreightBinding" type="cff:IFreight">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="getShipment">
+    		<soap:operation soapAction="getShipment" style="document" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="newShipment">
+    		<soap:operation soapAction="newShipment" style="document" />
+    		<wsdl:input>
+<!--     			<soap:header message="ss:role" parts="header" use="literal" /> -->
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="newShipmentFault">
+    			<soap:fault use="literal" name="newShipmentFault" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    </wsdl:binding>
+    
+  <wsdl:service name="FreightService">
+  	<wsdl:port name="FreightServicePort" binding="cff:FreightBinding">
+  		<soap:address location="http://127.0.0.1/FreightServicePort/" />
+  	</wsdl:port>
+  </wsdl:service>
+    
+</wsdl:definitions>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:hs="http://www.tibco.com/schemas/HandlingSchema"
+	 targetNamespace="http://www.tibco.com/schemas/HandlingSchema"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="shipments">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="hs:shipment" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="shipment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="awb" type="xs:string"/>
+				<xs:element name="origin" type="xs:string"/>
+				<xs:element name="destination" type="xs:string"/>
+				<xs:element name="shippingDate" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
