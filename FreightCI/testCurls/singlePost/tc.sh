@@ -1,0 +1,7 @@
+curl http://127.0.0.1:8080/FreightFrontend/ra/shipment/216 && echo ""
+curl http://127.0.0.1:8080/FreightFrontend/ra/shipment/all && echo ""
+curl -v --request POST --data "awb=216&origin=FRA&destination=WAW" http://127.0.0.1:8080/FreightFrontend/ra/shipment/new
+curl -v --request POST --data "awb=150&origin=FRA&destination=WAW" http://127.0.0.1:8080/FreightFrontend/ra/shipment/new
+curl -v --request POST --data "awb=321&origin=FRA&destination=WAW" http://127.0.0.1:8080/FreightFrontend/ra/shipment/new
+curl http://127.0.0.1:8080/FreightFrontend/ra/shipment/all && echo ""
+curl http://127.0.0.1:8080/FreightFrontend/ra/shipment/216 && echo ""
