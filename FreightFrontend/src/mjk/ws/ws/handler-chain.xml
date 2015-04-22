@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="http://xmlns.jcp.org/xml/ns/javaee">
+	<handler-chain>
+		<handler>
+			<handler-name>ServiceHeaderHandler</handler-name>
+			<handler-class>mjk.ws.ws.ServiceHeaderHandler</handler-class>
+		</handler>
+	</handler-chain>
+</handler-chains>
