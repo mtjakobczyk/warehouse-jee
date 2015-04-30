@@ -149,10 +149,12 @@
     </xs:complexType>
   </xs:element>
 </xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1/FreightServicePort/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="getShipment" name="getShipment" bindingOperationName="getShipment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="dd0c4008-c732-4183-9d58-4cc37ebe5484"><con:settings/><con:call name="getAWB.102.SOAP.1.1" id="d07c5429-e86f-4ecc-b88b-fe43ced4cd63"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/FreightFrontend/FreightService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fre="http://www.mtjakobczyk.pl/Schemas/FreightFrontend">
-   <soapenv:Header/>
+   <soapenv:Header>
+   	<ss:station xmlns:ss="http://www.mtjakobczyk.pl/Schemas/serviceHeader">FRA</ss:station>
+   </soapenv:Header>
    <soapenv:Body>
       <fre:getShipment>
-         <fre:searchedAWB>102</fre:searchedAWB>
+         <fre:searchedAWB>100</fre:searchedAWB>
       </fre:getShipment>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getShipment"/><con:wsrmConfig version="1.2"/></con:call><con:call id="fc73cd12-b800-4f7e-9765-82231e24fcbe" name="getAWB.100.SOAP.1.2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/FreightFrontend/FreightService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:fre="http://www.mtjakobczyk.pl/Schemas/FreightFrontend">
@@ -162,12 +164,58 @@
          <fre:searchedAWB>100</fre:searchedAWB>
       </fre:getShipment>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getShipment"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="newShipment" name="newShipment" bindingOperationName="newShipment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="3e81848a-d483-493f-80b8-dccb9000b97a"><con:settings/><con:call name="newAWB.113.SOAP.1.1" id="f5a59a91-272f-42f8-b6ba-0dc701073839"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/FreightFrontend/FreightService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fre="http://www.mtjakobczyk.pl/Schemas/FreightFrontend" xmlns:han="http://www.tibco.com/schemas/HandlingSchema">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getShipment"/><con:wsrmConfig version="1.2"/></con:call><con:call id="e0c434fb-eb45-479a-9dfa-62080c220d37" name="getAWB.100.SOAP.1.2.header"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/FreightFrontend/FreightService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:fre="http://www.mtjakobczyk.pl/Schemas/FreightFrontend">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <fre:getShipment>
+         <fre:searchedAWB>100</fre:searchedAWB>
+      </fre:getShipment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getShipment"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1ae49ce3-6128-4dba-8787-bc357510d1cf" name="getAWB.100.SOAP.1.1.header"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/FreightFrontend/FreightService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:fre="http://www.mtjakobczyk.pl/Schemas/FreightFrontend">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <fre:getShipment>
+         <fre:searchedAWB>100</fre:searchedAWB>
+      </fre:getShipment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getShipment"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="newShipment" name="newShipment" bindingOperationName="newShipment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="3e81848a-d483-493f-80b8-dccb9000b97a"><con:settings/><con:call name="newAWB.100.SOAP.1.1" id="f5a59a91-272f-42f8-b6ba-0dc701073839"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/FreightFrontend/FreightService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fre="http://www.mtjakobczyk.pl/Schemas/FreightFrontend" xmlns:han="http://www.tibco.com/schemas/HandlingSchema">
    <soapenv:Header/>
    <soapenv:Body>
       <fre:newShipment>
          <han:shipment>
-            <han:awb>113</han:awb>
+            <han:awb>100</han:awb>
+            <han:origin>WAW</han:origin>
+            <han:destination>KRK</han:destination>
+<!--            <han:shippingDate>2015-04-15T15:20:21.552+02:00</han:shippingDate> -->
+         </han:shipment>
+      </fre:newShipment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="newShipment"/><con:wsrmConfig version="1.2"/></con:call><con:call id="8717a9e9-0efb-41ed-b0af-0e04d9ac6c10" name="newAWB.100.SOAP.1.1.header"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/FreightFrontend/FreightService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:fre="http://www.mtjakobczyk.pl/Schemas/FreightFrontend" 
+xmlns:han="http://www.tibco.com/schemas/HandlingSchema">
+   <soapenv:Header>
+   	<ss:station xmlns:ss="http://www.mtjakobczyk.pl/Schemas/serviceHeader">FRA</ss:station>
+   </soapenv:Header>
+   <soapenv:Body>
+      <fre:newShipment>
+         <han:shipment>
+            <han:awb>100</han:awb>
+            <han:origin>WAW</han:origin>
+            <han:destination>KRK</han:destination>
+<!--            <han:shippingDate>2015-04-15T15:20:21.552+02:00</han:shippingDate> -->
+         </han:shipment>
+      </fre:newShipment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="newShipment"/><con:wsrmConfig version="1.2"/></con:call><con:call id="7f310473-8387-4912-a519-be821b6ce1c8" name="newAWB.100.SOAP.1.2.header"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8080/FreightFrontend/FreightService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" 
+xmlns:fre="http://www.mtjakobczyk.pl/Schemas/FreightFrontend" 
+xmlns:han="http://www.tibco.com/schemas/HandlingSchema">
+   <soapenv:Header>
+   	<ss:station xmlns:ss="http://www.mtjakobczyk.pl/Schemas/serviceHeader">FRA</ss:station>
+   </soapenv:Header>
+   <soapenv:Body>
+      <fre:newShipment>
+         <han:shipment>
+            <han:awb>100</han:awb>
             <han:origin>WAW</han:origin>
             <han:destination>KRK</han:destination>
 <!--            <han:shippingDate>2015-04-15T15:20:21.552+02:00</han:shippingDate> -->
