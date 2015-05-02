@@ -30,6 +30,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link NewShipment }
+     * 
+     */
+    public NewShipment createNewShipment() {
+        return new NewShipment();
+    }
+
+    /**
      * Create an instance of {@link GetShipment }
      * 
      */
@@ -38,11 +46,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link NewShipmentFault }
+     * Create an instance of {@link GetShipmentResponse }
      * 
      */
-    public NewShipmentFault createNewShipmentFault() {
-        return new NewShipmentFault();
+    public GetShipmentResponse createGetShipmentResponse() {
+        return new GetShipmentResponse();
     }
 
     /**
@@ -54,19 +62,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link NewShipment }
+     * Create an instance of {@link NewShipmentFault }
      * 
      */
-    public NewShipment createNewShipment() {
-        return new NewShipment();
-    }
-
-    /**
-     * Create an instance of {@link GetShipmentResponse }
-     * 
-     */
-    public GetShipmentResponse createGetShipmentResponse() {
-        return new GetShipmentResponse();
+    public NewShipmentFault createNewShipmentFault() {
+        return new NewShipmentFault();
     }
 
 }

@@ -3,8 +3,8 @@ package mjk.ws.ws;
 import java.time.OffsetDateTime;
 
 import javax.ejb.EJB;
+import javax.jws.HandlerChain;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
 import javax.xml.ws.Holder;
 
@@ -15,7 +15,7 @@ import com.tibco.schemas.handlingschema.Shipment;
 import com.tibco.schemas.handlingschema.Shipments;
 
 @WebService(serviceName="FreightService", targetNamespace="http://www.mtjakobczyk.pl/services/FreightFrontend/")
-//@HandlerChain(file = "handler-chain.xml")
+@HandlerChain(file = "handler-chain.xml")
 @BindingType(value=javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)
 public class ServiceFreightImplementation implements IFreight {
 	@EJB
