@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions  
+	name="DictionaryFrontend"  
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.mtjakobczyk.pl/contracts/DictionaryFrontend/" xmlns:tns="http://www.mtjakobczyk.pl/contracts/DictionaryFrontend/"
+	xmlns:df="http://www.mtjakobczyk.pl/Schemas/DictionaryFrontend">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import  namespace="http://www.mtjakobczyk.pl/Schemas/DictionaryFrontend" schemaLocation="../schemas/DictionaryFrontend.xsd" />
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="getStation">
+    <wsdl:part element="df:getStation" name="input"/>
+  </wsdl:message>
+  <wsdl:message name="getStationResponse">
+    <wsdl:part element="df:getStationResponse" name="output"/>
+  </wsdl:message>
+  <wsdl:message name="getStationFault">
+  	<wsdl:part name="fault" element="df:getStationFault" />
+  </wsdl:message>
+  <wsdl:portType name="IDictionary">
+    <wsdl:operation name="getStation">
+      <wsdl:input message="tns:getStation"/>
+      <wsdl:output message="tns:getStationResponse"/>
+      <wsdl:fault name="getStationFault" message="tns:getStationFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+
+    <wsdl:binding name="DictionaryBinding" type="tns:IDictionary">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="getStation">
+    		<soap:operation soapAction="getStation" style="document" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    		<wsdl:fault name="getStationFault">
+    			<soap:fault use="literal" name="getStationFault" />
+    		</wsdl:fault>
+    	</wsdl:operation>
+    </wsdl:binding>
+    
+  <wsdl:service name="DictionaryService">
+  	<wsdl:port name="DictionaryServicePort" binding="tns:DictionaryBinding">
+  		<soap:address location="http://localhost:8080/DictionaryFrontend/DictionaryService" />
+  	</wsdl:port>
+  </wsdl:service>
+    
+</wsdl:definitions>
