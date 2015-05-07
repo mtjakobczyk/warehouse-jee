@@ -13,6 +13,12 @@ import javax.ejb.ConcurrencyManagement;
 import javax.ejb.ConcurrencyManagementType;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.xml.ws.Holder;
+import javax.xml.ws.WebServiceRef;
+
+import pl.mtjakobczyk.contracts.dictionaryfrontend.GetStationFault;
+import pl.mtjakobczyk.contracts.dictionaryfrontend.IDictionary;
+import pl.mtjakobczyk.contracts.dictionaryfrontend.DictionaryService;
 
 import com.tibco.schemas.handlingschema.Shipment;
 
@@ -23,6 +29,9 @@ import com.tibco.schemas.handlingschema.Shipment;
 @Startup
 @ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
 public class ShipmentsBean implements Shipments {
+	@WebServiceRef(value=DictionaryService.class)
+	public IDictionary idic;
+	
 	private final Logger log = Logger.getLogger("SingletonBean");
 	private Map<String,Shipment> shipments = new HashMap<>();
  
@@ -41,10 +50,36 @@ public class ShipmentsBean implements Shipments {
     	log.info("Singleton instance initialized - @PostConstruct ended.");
     }
     
+    @Override
+    @javax.ejb.Lock(javax.ejb.LockType.READ)
+    public String getShipmentRouteByAWB(String awb) {
+    	Shipment shipment = getShipmentByAWB(awb);
+    	if(shipment==null) return null;
+    	
+    	String route = "";
+    	try {
+	    	String originCode = shipment.getOrigin();
+	    	Holder<String> originName = new Holder<String>();
+	    	idic.getStation(new Holder<String>(originCode), originName);
+	    	if(originName!=null && originName.value != null) route = originName.value+" - ";
+	    	
+	    	String destinationCode = shipment.getDestination();
+	    	Holder<String> destinationName = new Holder<String>();
+	    	idic.getStation(new Holder<String>(destinationCode), destinationName);
+	    	if(destinationName!=null && destinationName.value != null) route = route+destinationName.value;
+	    	
+    	} catch(Exception ex) {
+    		throw new RuntimeException(ex);
+    	}
+    	
+    	return route;
+    }
+    
 	@Override
 	@javax.ejb.Lock(javax.ejb.LockType.READ)
 	public Shipment getShipmentByAWB(String awb) {
 		log.info("Query for AWB "+awb);
+		if(awb==null || awb.trim().isEmpty()) throw new IllegalStateException("AWB must not be empty!");
 		Shipment result =  shipments.get(awb);
 		if(result==null) log.warning("AWB "+awb+" not found");
 		return result;

@@ -6,6 +6,7 @@
 		<project>FreightBackend</project>
 		<project>FreightFrontend</project>
 		<project>FreightUtility</project>
+		<project>DictionaryFrontend</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

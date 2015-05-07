@@ -13,6 +13,7 @@ public class RESTApplication extends Application {
 	public Set<Class<?>> getClasses() {
 		Set < Class <? > > set = new HashSet < Class <? > >();
 		set.add(ShipmentResource.class);
+		set.add(NotFoundExceptionMapper.class); // adding custom exception mapper (or actually wrapper)
 		return set;
 	}
 

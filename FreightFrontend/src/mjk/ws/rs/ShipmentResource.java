@@ -41,6 +41,14 @@ public class ShipmentResource {
 		Shipment s = sb.getShipmentByAWB(awb);
 		return Response.ok(s ,MediaType.APPLICATION_JSON).build();
 	}
+
+	@GET
+	@Produces({MediaType.TEXT_PLAIN})
+	@Path("route/{awb}")
+	public Response getShipmentRouteByAWB(@PathParam("awb") String awb) {
+		String route = sb.getShipmentRouteByAWB(awb);
+		return Response.ok(route ,MediaType.TEXT_PLAIN).build();
+	}
 	
 	@POST
 	@Produces({MediaType.TEXT_PLAIN})

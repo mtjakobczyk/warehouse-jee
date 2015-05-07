@@ -9,4 +9,5 @@ public interface Shipments {
 	public Shipment getShipmentByAWB(String awb);
 	public com.tibco.schemas.handlingschema.Shipments getAllShipments();
 	public boolean putShipment(Shipment newShipment);
+	public String getShipmentRouteByAWB(String awb);
 }
