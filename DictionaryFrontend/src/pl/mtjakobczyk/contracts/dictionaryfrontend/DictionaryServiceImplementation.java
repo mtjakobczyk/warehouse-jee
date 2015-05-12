@@ -1,10 +1,15 @@
 package pl.mtjakobczyk.contracts.dictionaryfrontend;
 
+import java.util.concurrent.Future;
 import java.util.logging.Logger;
 
 import javax.jws.WebService;
+import javax.xml.ws.AsyncHandler;
 import javax.xml.ws.BindingType;
 import javax.xml.ws.Holder;
+import javax.xml.ws.Response;
+
+import pl.mtjakobczyk.schemas.dictionaryfrontend.GetStationResponse;
 
 @WebService(serviceName = "DictionaryService", targetNamespace = "http://www.mtjakobczyk.pl/contracts/DictionaryFrontend/")
 @BindingType(value=javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)
@@ -38,6 +43,16 @@ public class DictionaryServiceImplementation implements IDictionary {
 			stationName.value = stationCode.value+" - Unknown";	
 		}
 
+	}
+
+	@Override
+	public Response<GetStationResponse> getStationAsync(String stationCode) {
+		throw new IllegalStateException(); // generated in interface only for async client purpose
+	}
+
+	@Override
+	public Future<?> getStationAsync(String stationCode, AsyncHandler<GetStationResponse> asyncHandler) {
+		throw new IllegalStateException(); // generated in interface only for async client purpose
 	}
 
 }

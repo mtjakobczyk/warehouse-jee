@@ -1,13 +1,17 @@
 
 package pl.mtjakobczyk.contracts.dictionaryfrontend;
 
+import java.util.concurrent.Future;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.ws.AsyncHandler;
 import javax.xml.ws.Holder;
 import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.Response;
 import javax.xml.ws.ResponseWrapper;
+import pl.mtjakobczyk.schemas.dictionaryfrontend.GetStationResponse;
 import pl.mtjakobczyk.schemas.dictionaryfrontend.ObjectFactory;
 
 
@@ -23,6 +27,35 @@ import pl.mtjakobczyk.schemas.dictionaryfrontend.ObjectFactory;
 })
 public interface IDictionary {
 
+
+    /**
+     * 
+     * @param stationCode
+     * @return
+     *     returns javax.xml.ws.Response<pl.mtjakobczyk.schemas.dictionaryfrontend.GetStationResponse>
+     */
+    @WebMethod(operationName = "getStation", action = "getStation")
+    @RequestWrapper(localName = "getStation", targetNamespace = "http://www.mtjakobczyk.pl/Schemas/DictionaryFrontend", className = "pl.mtjakobczyk.schemas.dictionaryfrontend.GetStation")
+    @ResponseWrapper(localName = "getStationResponse", targetNamespace = "http://www.mtjakobczyk.pl/Schemas/DictionaryFrontend", className = "pl.mtjakobczyk.schemas.dictionaryfrontend.GetStationResponse")
+    public Response<GetStationResponse> getStationAsync(
+        @WebParam(name = "stationCode", targetNamespace = "http://www.mtjakobczyk.pl/Schemas/DictionaryFrontend")
+        String stationCode);
+
+    /**
+     * 
+     * @param stationCode
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getStation", action = "getStation")
+    @RequestWrapper(localName = "getStation", targetNamespace = "http://www.mtjakobczyk.pl/Schemas/DictionaryFrontend", className = "pl.mtjakobczyk.schemas.dictionaryfrontend.GetStation")
+    @ResponseWrapper(localName = "getStationResponse", targetNamespace = "http://www.mtjakobczyk.pl/Schemas/DictionaryFrontend", className = "pl.mtjakobczyk.schemas.dictionaryfrontend.GetStationResponse")
+    public Future<?> getStationAsync(
+        @WebParam(name = "stationCode", targetNamespace = "http://www.mtjakobczyk.pl/Schemas/DictionaryFrontend")
+        String stationCode,
+        @WebParam(name = "asyncHandler", targetNamespace = "")
+        AsyncHandler<GetStationResponse> asyncHandler);
 
     /**
      * 
