@@ -17,7 +17,9 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "DictionaryService", targetNamespace = "http://www.mtjakobczyk.pl/contracts/DictionaryFrontend/", wsdlLocation = "file:/C:/git/github/FreightUtility/resources/contracts/DictionaryFrontend.abstract.wsdl")
+
+@WebServiceClient(name = "DictionaryService", targetNamespace = "http://www.mtjakobczyk.pl/contracts/DictionaryFrontend/", wsdlLocation = "file:/C:/git/github/FreightUtility/resources/contracts/DictionaryFrontend.abstract.wsdl" )
+
 public class DictionaryService
     extends Service
 {
@@ -30,7 +32,7 @@ public class DictionaryService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/git/github/FreightUtility/resources/contracts/DictionaryFrontend.abstract.wsdl");
+        	url = new URL("file:/C:/git/github/FreightUtility/resources/contracts/DictionaryFrontend.abstract.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
