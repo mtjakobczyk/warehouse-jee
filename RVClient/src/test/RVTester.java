@@ -1,7 +1,7 @@
 package test;
 
-import mjk.rv.reqrep.async.RVListener;
-import mjk.rv.reqrep.async.RVSender;
+import mjk.rv.cd.RVListener;
+import mjk.rv.cd.RVSender;
 
 import org.junit.Test;
 
@@ -18,6 +18,6 @@ public class RVTester {
 		Thread sT = new Thread(s);
 		sT.start();
 		
-		Thread.sleep(60000);
+		lT.join(); // Wait until listening thread finishes
 	}
 }
