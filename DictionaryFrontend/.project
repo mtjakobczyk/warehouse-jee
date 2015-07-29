@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>FreightFrontend</name>
+	<name>DictionaryFrontend</name>
 	<comment></comment>
 	<projects>
-		<project>FreightBackend</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

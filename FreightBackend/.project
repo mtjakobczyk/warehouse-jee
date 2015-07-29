@@ -3,6 +3,7 @@
 	<name>FreightBackend</name>
 	<comment></comment>
 	<projects>
+		<project>FreightUtility</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -18,7 +18,7 @@ import javax.xml.ws.WebServiceFeature;
  * 
  */
 
-@WebServiceClient(name = "DictionaryService", targetNamespace = "http://www.mtjakobczyk.pl/contracts/DictionaryFrontend/", wsdlLocation = "file:/C:/git/github/FreightUtility/resources/contracts/DictionaryFrontend.abstract.wsdl" )
+@WebServiceClient(name = "DictionaryService", targetNamespace = "http://www.mtjakobczyk.pl/contracts/DictionaryFrontend/", wsdlLocation = "file:/home/mjk/git/github/warehouse-jee/FreightUtility/resources/contracts/DictionaryFrontend.abstract.wsdl" )
 
 public class DictionaryService
     extends Service
